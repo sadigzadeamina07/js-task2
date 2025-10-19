@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input,button{width:100px;}
+        .container{
+            display: flex;
+            flex-wrap: wrap;
+            gap:30px;
+            flex-direction: column;
+        }
+    .task3{text-align: center;}
+      .task4{text-align: center;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+    <h1>3 ededi  artan  qaydada siralamaq</h1>
+    <input type="number" id="a" placeholder="1ci eded">
+    <input type="number" id="b" placeholder="2ci eded">
+    <input type="number" id="c" placeholder="3cu eded">
+    <button onclick="hesabla()">Hesabla</button>
+       <h3 id="result"></h3>
+        </div>
+<div >
+    <h1>Ədədlərin  vəziyyətini müəyyən et</h1>
+    <input type="number" name="" id="x">
+    <input type="number" name="" id="y">
+    <input type="number" name="" id="z">
+
+    <button onclick="unikal()">Yoxla</button>
+    <h3 id="result2"></h3>
+</div>
+<div class="task3">
+       <h3 id="result3"></h3>
+</div>
+ <div class="task4">
+       <h3 id="result4"></h3>
+ </div>
+ <div>
+    <h1>Ortadaki  iki ededin  ortalamasini tap</h1>
+    <input type="number" name="" id="eded">
+    <input type="number" name="" id="eded2">
+    <input type="number" name="" id="eded3">
+       <input type="number" name="" id="eded4">
+<button onclick="ortalama()">Hesabla</button>
+    <h3 id="result5"></h3>
+</div>
+    </div>
+
+    <script>
+const a=document.getElementById('a')
+const b=document.getElementById('b')
+const c=document.getElementById('c')
+const eded=document.getElementById('eded')
+const eded2=document.getElementById('eded2')
+const eded3=document.getElementById('eded3')
+const eded4=document.getElementById('eded4')
+  const result2=document.getElementById('result2')
+const result=document.getElementById('result')
+const result3=document.getElementById('result3')
+const result4=document.getElementById('result4')
+let kod2=''
+let ulduz='*'
+let kod=''
+//1ci task
+function hesabla(){
+result.innerHTML=(a.value>=b.value && a.value<=c.value && b.value>=c.value) ? c.value+','+b.value+','+a.value:
+(a.value>=b.value && a.value<=c.value && c.value>=b.value) ? b.value+' ,'+a.value+ ','+c.value:
+(a.value<=b.value && b.value<=c.value &&  a.value<=c.value) ? a.value+','+b.value+','+c.value :
+(c.value<= a.value && a.value<=b.value &&  c.value<=b.value) ? c.value+','+ a.value+','+ b.value :
+a.value+','+c.value+','+b.value
+
+}
+//2ci task
+function unikal(){
+  const x=Number(document.getElementById('x').value)
+const y=Number(document.getElementById('y').value)
+const z=Number(document.getElementById('z').value)
+
+    result2.innerHTML=(x!=y && x!=z && z!=y) ? 'Unique' : 
+  (x==y && x==z && z==y) ?  'Equal' :'mixed'
+}
+//3cutask
+for(let i=1;i<=7;i++){
+for(let j=1;j<=7;j++){
+kod+=(i>=j) ? j :' '
+}
+  kod += '<br>'; 
+}
+   result3.innerHTML=kod
+//task4
+for(let i=7;i>=1;i--){
+    for(let j=1;j<=i;j++){
+        kod2+=ulduz
+    }
+    kod2+='<br>'
+}
+   result4.innerHTML=kod2
+    </script>
+</body>
+</html>
