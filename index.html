@@ -53,9 +53,9 @@
     </div>
 
     <script>
-const a=document.getElementById('a')
-const b=document.getElementById('b')
-const c=document.getElementById('c')
+const a=Number(document.getElementById('a').value)
+const b=Number(document.getElementById('b').value)
+const c=Number(document.getElementById('c').value)
 const eded=document.getElementById('eded')
 const eded2=document.getElementById('eded2')
 const eded3=document.getElementById('eded3')
@@ -64,18 +64,46 @@ const eded4=document.getElementById('eded4')
 const result=document.getElementById('result')
 const result3=document.getElementById('result3')
 const result4=document.getElementById('result4')
+const result5=document.getElementById('result5')
 let kod2=''
 let ulduz='*'
 let kod=''
 //1ci task
 function hesabla(){
-result.innerHTML=(a.value>=b.value && a.value<=c.value && b.value>=c.value) ? c.value+','+b.value+','+a.value:
-(a.value>=b.value && a.value<=c.value && c.value>=b.value) ? b.value+' ,'+a.value+ ','+c.value:
-(a.value<=b.value && b.value<=c.value &&  a.value<=c.value) ? a.value+','+b.value+','+c.value :
-(c.value<= a.value && a.value<=b.value &&  c.value<=b.value) ? c.value+','+ a.value+','+ b.value :
-a.value+','+c.value+','+b.value
-
+  result.innerHTML = 
+    (a >= b && a <= c && b >= c) ? c + ',' + b + ',' + a :
+    (a >= b && a <= c && c >= b) ? b + ',' + a + ',' + c :
+    (a <= b && b <= c && a <= c) ? a + ',' + b + ',' + c :
+    (c <= a && a <= b && c <= b) ? c + ',' + a + ',' + b :
+    (c <= a && a >= b && c >= b) ? b + ',' + c + ',' + a :
+ a + ',' + c + ',' + b
 }
+function hesabla(){
+  let a = Number(document.getElementById('a').value);
+  let b = Number(document.getElementById('b').value);
+  let c = Number(document.getElementById('c').value);
+  let result = document.getElementById('result');
+
+  if(a <= b && b <= c){
+    result.innerHTML = a + ',' + b + ',' + c;
+  } 
+  else if(a <= c && c <= b){
+    result.innerHTML = a + ',' + c + ',' + b;
+  } 
+  else if(b <= a && a <= c){
+    result.innerHTML = b + ',' + a + ',' + c;
+  } 
+  else if(b <= c && c <= a){
+    result.innerHTML = b + ',' + c + ',' + a;
+  } 
+  else if(c <= a && a <= b){
+    result.innerHTML = c + ',' + a + ',' + b;
+  } 
+  else {
+    result.innerHTML = c + ',' + b + ',' + a;
+  }
+}
+
 //2ci task
 function unikal(){
   const x=Number(document.getElementById('x').value)
@@ -101,6 +129,9 @@ for(let i=7;i>=1;i--){
     kod2+='<br>'
 }
    result4.innerHTML=kod2
+   function ortalama(){
+    result5.innerHTML=(Number(eded2.value)+Number(eded3.value))/2
+   }
     </script>
 </body>
 </html>
